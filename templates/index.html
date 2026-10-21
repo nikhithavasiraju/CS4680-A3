@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudyBuddy AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="eyebrow">AI-POWERED LEARNING ASSISTANT</div>
+      <h1>Study smarter.<br><span>Start with a plan.</span></h1>
+      <p>Tell StudyBuddy what you need to learn. It will create a focused study session, explain the topic, and generate practice questions.</p>
+      <div class="tech-pills"><span>Persona prompt</span><span>Few-shot format</span><span>Adaptive output</span></div>
+    </section>
+
+    <section class="workspace">
+      <form id="study-form" class="input-card">
+        <div class="card-heading"><span class="step-number">01</span><div><h2>Build your session</h2><p>Give the tutor a little context.</p></div></div>
+        <label>Subject<input name="subject" placeholder="e.g., Civil Engineering" required></label>
+        <label>Topic<input name="topic" placeholder="e.g., Bearing Capacity" required></label>
+        <div class="two-col">
+          <label>Difficulty<select name="difficulty"><option>Beginner</option><option selected>Intermediate</option><option>Advanced</option></select></label>
+          <label>Study time<select name="study_time"><option>30 minutes</option><option>1 hour</option><option selected>2 hours</option><option>3 hours</option></select></label>
+        </div>
+        <label>Learning preference<select name="learning_style"><option>Visual examples</option><option>Step-by-step explanations</option><option>Practice problems</option><option>Quick review notes</option></select></label>
+        <button id="generate-btn" type="submit"><span>Generate study session</span><span class="arrow">→</span></button>
+        <p class="privacy-note">Your inputs are used only to create this study session.</p>
+      </form>
+
+      <section class="output-card">
+        <div class="card-heading output-heading"><span class="step-number">02</span><div><h2>Your study session</h2><p id="status">Your personalized result will appear here.</p></div><span id="mode-badge" class="mode-badge hidden">DEMO</span></div>
+        <div id="empty-state" class="empty-state"><div class="spark">✦</div><h3>Ready when you are</h3><p>Complete the form and select <b>Generate study session</b> to see the AI output.</p></div>
+        <article id="result" class="result hidden"></article>
+      </section>
+    </section>
+    <footer>StudyBuddy AI · Prompt Engineering Project</footer>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
